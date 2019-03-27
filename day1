@@ -4,3 +4,35 @@ if targer in nums:
     print(nums.index(targer)-1)
 else:
     print(-1)
+
+-----------------------------------------------------------------------------
+def search(nums, target):
+    '''
+    nums: List[int]
+    target: int
+    '''
+    i = 0
+    j = len(nums) - 1
+    while i <= j:
+        mid = (i + j) // 2
+        if nums[mid] == target:
+            return mid
+        else:
+            if nums[mid] > target:
+                j = mid - 1
+            else:
+                i = mid + 1
+    return -1
+    
+-----------------------------------------------------------------------------  
+   def classic_search(nums,target):
+        left = 0
+        right = len(nums)
+        mid = left + (right - left) / 2
+        if (nums[mid]) < target:
+            left = mid + 1;
+        elif (nums[mid] > target):
+            right = mid - 1;
+        else:
+            return mid
+    
