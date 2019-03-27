@@ -1,0 +1,6 @@
+nums=[1,3,5,7,9]
+targer=5
+if targer in nums:
+    print(nums.index(targer)-1)
+else:
+    print(-1)
