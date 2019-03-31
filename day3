@@ -28,3 +28,27 @@ Example 3:
 
 oj:https://www.lintcode.com/problem/first-position-of-target/description
 注意：这道题也可以变为找到最后一个位置，大家都可以试试。
+
+
+-------------------------------------------------------------------------------------
+
+class Solution:
+    """
+    @param nums: The integer array.
+    @param target: Target to find.
+    @return: The first position of target. Position starts from 0.
+    """
+    def binarySearch(nums, target):
+    left = 0
+    right = len(nums) - 1
+    mid = left + (right - left) // 2
+    while left <= right:
+        if target not in nums:
+            return -1
+        elif target > nums[mid]:
+            left = mid + 1
+        elif target < nums[mid]:
+            right = mid - 1
+        elif target == nums[mid]:
+            return mid
+              
