@@ -1,0 +1,39 @@
+url=https://www.lintcode.com/problem/majority-element/description
+Majority Element
+Description
+Given an array of integers, the majority number is the number that occurs more than half of the size of the array. Find it.
+
+You may assume that the array is non-empty and the majority number always exist in the array.
+
+Example
+Example 1:
+Input: [1, 1, 1, 1, 2, 2, 2]
+Output: 1
+
+Example 2:
+Input: [1, 1, 1, 2, 2, 2, 2]
+Output: 2
+
+---------------------------------------------------------------
+
+class Solution:
+    """
+    @param: nums: a list of integers
+    @return: find a  majority number
+    """
+    def majorityNumber(self, nums):
+        # write your code here
+        dic = {}
+        for i in nums:
+            if i in dic:
+                dic[i] += 1
+            else:
+                dic[i]=1
+        # print(dic)
+        max_i = 0
+        max_j = 0
+        for i,j in dic.items():
+            if j > max_j:
+                max_i = i
+                max_j = j
+        return max_i
