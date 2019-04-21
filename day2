@@ -18,14 +18,22 @@ oj:https://www.lintcode.com/problem/find-peak-element/description
 
 
 -------------------------------------------------------------------------------------------
-def findPeak(A):
-    s=0
-    while True:
-        s+=1
-        if A[s] > A[s - 1] and A[s] > A[s + 1]:
-            print(A.index(A[s]))
-            break
-findPeak(A)
+class Solution:
+    """
+    @param A: An integers array.
+    @return: return any of peek positions.
+    """
+    def findPeak(self, A):
+        # write your code here
+        left = 0
+        right = len(A) - 1
+        while left < right:
+            mid = left + (right-left) // 2
+            if A[mid + 1] > A[mid]:
+                left = mid + 1
+            else:
+                right = mid
+        return right
 
 -----------------------------------------------------------------------------------------------
 def findPeak(self, A):
