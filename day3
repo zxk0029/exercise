@@ -31,24 +31,24 @@ oj:https://www.lintcode.com/problem/first-position-of-target/description
 
 
 -------------------------------------------------------------------------------------
-
 class Solution:
-    """
-    @param nums: The integer array.
-    @param target: Target to find.
-    @return: The first position of target. Position starts from 0.
-    """
-    def binarySearch(nums, target):
+"""
+@param nums: The integer array.
+@param target: Target to find.
+@return: The first position of target. Position starts from 0.
+"""
+def binarySearch(self, nums, target):
     left = 0
-    right = len(nums) - 1
-    mid = left + (right - left) // 2
-    while left <= right:
-        if target not in nums:
-            return -1
-        elif target > nums[mid]:
-            left = mid + 1
-        elif target < nums[mid]:
-            right = mid - 1
-        elif target == nums[mid]:
-            return mid
+    right = len(nums)-1
+    res = 0
+    while left<=right:
+        mid = left+(right-left)//2
+        if target>nums[mid]:
+            left = mid+1
+        else:
+            right = mid-1
+            res = mid
+    if nums[res] == target:
+        return res
+    return -1
               
